@@ -111,7 +111,9 @@ from pydantic import BaseModel, TypeAdapter
 T = t.TypeVar("T")
 
 
-def serialize_typed_dict(_type: type[T], data: t.Any, as_list: Optional[bool] = None) -> T | list[T]:
+def serialize_typed_dict(_type: type[T],
+                         data: t.Any,
+                         as_list: Optional[bool] = None) -> T | list[T]:
     data_as_dict: dict
     if hasattr(data, "__dict__"):
         data_as_dict = data.__dict__ 

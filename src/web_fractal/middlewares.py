@@ -1,8 +1,8 @@
 import traceback
 from fastapi import Request
 
-from fractal.dtos import Context
-from fractal.utils import serialize_fastapi_request
+from web_fractal.dtos import Context
+from web_fractal.utils import serialize_fastapi_request
 
 
 async def context_middleware(request: Request, call_next):

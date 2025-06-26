@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from enum import Enum
 
 from pydantic import ConfigDict
-from fractal.types import UNSET, Unset
+from web_fractal.types import UNSET, Unset
 
 
 class Base(BaseModel):

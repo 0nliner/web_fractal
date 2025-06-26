@@ -19,7 +19,7 @@ if get_settings_value("DJANGO_MODE"):
 else:
     try:
         from app.archtool_conf.custom_layers import APPS
-        from fractal.http.interfaces import HttpControllerABC
+        from web_fractal.http.interfaces import HttpControllerABC
     except:
         import warnings
         warnings.warn("cli mode used")

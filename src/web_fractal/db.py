@@ -13,9 +13,9 @@ from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import RelationshipProperty
 
-from fractal.dtos import Pagination
-from fractal.utils import now, serialize
-from fractal.types import Unset, UNSET
+from web_fractal.dtos import Pagination
+from web_fractal.utils import now, serialize
+from web_fractal.types import Unset, UNSET
 
 T = t.TypeVar('T')
 R = t.TypeVar('R')
@@ -61,6 +61,19 @@ class UOFParams(TypedDictExt):
 
 
 from contextlib import asynccontextmanager
+from enum import Enum
+from sqlalchemy import asc, desc
+
+
+def order_by_field(q: T, model: Base, field: str) -> T:
+    is_asc = True if field.startswith('-') else False
+    field_name = field if not field.startswith('-') else field[1:]
+    if is_asc:
+        q = q.order_by(acs(field))
+    else:
+        q = q.order_by(desc(field))
+    return q
+
 
 class BaseRepo(t.Generic[T, R]):
     session_maker: async_sessionmaker
@@ -335,3 +348,4 @@ async def copy_object(entity: ORM_OBJ_T,
             await session.flush([new_entity])
             # await session.refresh(new_entity)  
         return new_entity
+
