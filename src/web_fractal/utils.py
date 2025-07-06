@@ -117,6 +117,8 @@ def serialize_typed_dict(_type: type[T],
     data_as_dict: dict
     if hasattr(data, "__dict__"):
         data_as_dict = data.__dict__ 
+    elif type(data) is str:
+        data_as_dict = json.loads(data)
     else:
         data_as_dict = data
     data_as_dict = {key: value for key, value in data_as_dict.items() if not key.startswith('_')}
