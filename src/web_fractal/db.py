@@ -20,16 +20,12 @@ from web_fractal.types import Unset, UNSET
 T = t.TypeVar('T')
 R = t.TypeVar('R')
 
-from typing_extensions import TypedDict as TypedDictExt, NotRequired, ParamSpec, Callable
-# from .dtos import TypedDictWithDefaults
-
-from typing import Unpack, TypeVar
+from typing_extensions import NotRequired
+from typing import TypeVar
 
 
-class BaseTypedDict(TypedDictExt):
-# class BaseTypedDict(t.TypedDict):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+class BaseTypedDict(dict):
+    """dict subclass with not_blank helper and serialize_model utility."""
 
     @property
     def not_blank(self) -> dict[str, t.Any]:
@@ -37,9 +33,11 @@ class BaseTypedDict(TypedDictExt):
 
     def serialize_model(self, data: DeclarativeMeta) -> dict[str, t.Any]:
         data_as_dict = data.__dict__ if hasattr(data, "__dict__") else data
-        for key, val in t.get_type_hints(self).items():
+        for key, val in t.get_type_hints(type(self)).items():
             args = val.__args__[0] if hasattr(val, "__args__") else val
-            data_as_dict[key] = serialize(args, data_as_dict[key])
+            if key in data_as_dict:
+                data_as_dict[key] = serialize(args, data_as_dict[key])
+        return data_as_dict
 
 
 from sqlalchemy.ext.mutable import MutableDict
@@ -54,10 +52,12 @@ class Base(AsyncAttrs, DeclarativeBase):
     }
 
 
-class UOFParams(TypedDictExt):
-    uof: NotRequired['UnitOfWork']
-    commit: NotRequired[bool]
-    return_orm: NotRequired[bool]
+from typing import TypedDict
+
+class UOFParams(TypedDict, total=False):
+    uof: 'UnitOfWork'
+    commit: bool
+    return_orm: bool
 
 
 from contextlib import asynccontextmanager
@@ -66,12 +66,12 @@ from sqlalchemy import asc, desc
 
 
 def order_by_field(q: T, model: Base, field: str) -> T:
-    is_asc = True if field.startswith('-') else False
+    is_asc = not field.startswith('-')
     field_name = field if not field.startswith('-') else field[1:]
     if is_asc:
-        q = q.order_by(acs(field))
+        q = q.order_by(asc(field_name))
     else:
-        q = q.order_by(desc(field))
+        q = q.order_by(desc(field_name))
     return q
 
 
@@ -89,31 +89,22 @@ class BaseRepo(t.Generic[T, R]):
         if uof.session:
             yield uof.session
         else:
-            yield self.session_maker()
+            session = self.session_maker()
+            try:
+                yield session
+            finally:
+                await session.close()
 
     @asynccontextmanager
     async def in_session(self, uof: t.Optional['UnitOfWork'] = None) -> t.AsyncGenerator[AsyncSession, None]:
         if uof:
             yield uof.session
         else:
-            yield self.session_maker()
-
-
-    # def register(self, execution: t.Optional['UOFParams'], objects: list):
-    #     execution['uof'].register(objects)
-
-    # async def finish(self, execution: t.Optional['UOFParams'], ):
-    #     if execution and execution['uof']:
-    #         if execution['commit']:
-    #             await execution['uof'].commit()
-
-    #         elif not execution['commit']:
-    #             await execution['uof'].flush()
-
-    #         else:
-    #             await execution['uof'].rollback()
-
-# UOFParamsT = TypeVar('UOFParamsT', bound=UOFParams)
+            session = self.session_maker()
+            try:
+                yield session
+            finally:
+                await session.close()
 
 from typing import Optional 
 
@@ -183,18 +174,6 @@ def get_db_name(dsn: str) -> str:
 class Dated:
     created_at: Mapped[datetime] = mapped_column(default=now)
     updated_at: Mapped[datetime] = mapped_column(default=now, onupdate=now)
-
-
-def get_no_db_engine(dsn):
-    f = furl(dsn)
-    db_name = f.path.segments[0]
-    f.path.remove(db_name)  # Remove database name from DSN
-    return create_engine(f.url, isolation_level="AUTOCOMMIT")
-
-
-def get_db_name(dsn: str) -> str:
-    f = furl(dsn)
-    return f.path.segments[0]
 
 
 
@@ -294,7 +273,6 @@ async def copy_object(entity: ORM_OBJ_T,
         all_objects = []
 
     async with uof.get_session() as session:
-        session_id = print(id(session))
         mapper = type(entity)
         inspector = sa_inspect(mapper)
         new_entity = mapper()

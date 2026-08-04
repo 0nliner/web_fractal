@@ -1,12 +1,36 @@
 [project]
 name = "web_fractal"
-version = "0.0.1"
+version = "0.1.0"
 requires-python = ">=3.12"
 authors = [
     { name = "Aleksandr", email = "vkusnisaharok@gmail.com" },
 ]
-description = "reborn to kill"
+description = "Framework-agnostic constructor library: FilterBase DSL, ABAC, CRUD mixins, multi-protocol controllers, fractal extraction"
+dependencies = [
+    "pydantic>=2.0",
+    "sqlalchemy>=2.0",
+    "click>=8.0",
+    "furl",
+    "pytz",
+]
+
+[project.optional-dependencies]
+fastapi  = ["fastapi>=0.100"]
+aiohttp  = ["aiohttp>=3.8"]
+kafka    = ["aiokafka>=0.9"]
+grpc     = ["grpclib>=0.4"]
+graphql  = ["strawberry-graphql>=0.200"]
+django   = ["django>=4.0"]
+dev      = ["pytest>=8.0", "pytest-asyncio>=1.0", "aiosqlite"]
+
+[project.scripts]
+wf = "web_fractal.cli.main:cli"
 
 [build-system]
 requires = ["uv>=0.1.0", "setuptools>=65.0.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

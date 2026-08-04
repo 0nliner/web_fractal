@@ -23,7 +23,7 @@ def get_list_from_env(env_var_name: str) -> list[str]:
 
 def get_int_from_env(env_var_name: str, default: t.Optional[int] = None) -> int:
     env_value = os.environ.get(env_var_name)
-    if env_value and isinstance(default, int):
+    if not env_value and isinstance(default, int):
         return default
 
     return int(env_value)

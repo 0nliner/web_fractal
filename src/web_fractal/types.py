@@ -5,10 +5,6 @@ from pydantic_core import core_schema
 
 
 class Unset:
-    @classmethod
-    def __bool__(self):
-        return False
-
     def __bool__(self) -> Literal[False]:
         return False
 

@@ -1,6 +1,8 @@
+import json
 from io import BytesIO
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from archtool.dependency_injector import DependencyInjector
+from django.apps import apps
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.conf import settings
 from fastapi import UploadFile
@@ -48,7 +50,10 @@ def fastapi_file_to_django_file(file: UploadFile) -> InMemoryUploadedFile:
 def get_serialized_settings() -> dict[str, Any]:
     context = {}
     for key, value in vars(settings).items():
-        if key not in __builtins__:
-            serialuzed_value = value if type(value) in __builtins__ else str(value)
-            context[key] = serialuzed_value
+        if key.startswith('_'):
+            continue
+        try:
+            context[key] = json.loads(json.dumps(value, default=str))
+        except Exception:
+            context[key] = str(value)
     return context

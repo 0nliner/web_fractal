@@ -18,7 +18,7 @@ async def my_exception_handler(request: Request, exc: Exception, logger_service)
     """
     serialized_request = await serialize_fastapi_request(request)
     await logger_service.log([{
-        f"is_error": True,
+        "is_error": True,
         **serialized_request,
         "err_class": exc.__class__.__name__,
         "traceback": traceback.format_exc(),        

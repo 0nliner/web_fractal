@@ -1,4 +1,3 @@
-from io import BytesIO
 import json
 import os
 from typing import Any, Optional, Union, overload
@@ -19,14 +18,10 @@ def get_settings_value(key: str):
         if get_bool_from_env("DJANGO_MODE"):
             settings = importlib.import_module(f"{project_name}.settings")
         else:
-            try:
-                from app import config as settings
-            # TODO: убрать костыль
-            except ModuleNotFoundError:
-                from dp import config as settings
+            from app import config as settings
         result = getattr(settings, key)
         return result
-    except:
+    except Exception:
         return None
 
 
@@ -51,8 +46,8 @@ async def download_large_file(url: str,
                 filename = cd_header.split('filename=')[-1].strip('\"')
             else:
                 filename = Path(url).name
-            extension = filename.split(".")[1]
-            filename = f"{datetime.now()}.{extension}".replace(" ", "_")
+            extension = filename.split(".")[-1]
+            filename = f"{datetime.datetime.now()}.{extension}".replace(" ", "_")
             save_path = Path(save_dir) / filename
             save_path.parent.mkdir(parents=True, exist_ok=True)
 
