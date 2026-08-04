@@ -227,8 +227,11 @@ class FilterBase:
             if isinstance(field_type, type) and issubclass(field_type, Enum):
                 return [self._coerce_enum(field_type, item) for item in items]
             try:
-                return [field_type(item) for item in items]
-            except (ValueError, TypeError):
+                return [
+                    item if isinstance(item, field_type) else field_type(item)
+                    for item in items
+                ]
+            except (ValueError, TypeError, AttributeError):
                 return items
 
         if op == Op.is_null:
@@ -241,9 +244,17 @@ class FilterBase:
         if isinstance(field_type, type) and issubclass(field_type, Enum):
             return self._coerce_enum(field_type, value)
 
+        # Значение может УЖЕ быть нужного типа: as_fastapi_dep() объявляет
+        # query-параметр с аннотацией из FilterField[T], поэтому FastAPI приводит
+        # строку к T раньше, чем она попадёт сюда. Повторное приведение UUID(UUID(...))
+        # кидает AttributeError, которого не было в списке перехвата, — и любой
+        # фильтр по UUID отвечал 500-й.
+        if isinstance(field_type, type) and isinstance(value, field_type):
+            return value
+
         try:
             return field_type(value)
-        except (ValueError, TypeError):
+        except (ValueError, TypeError, AttributeError):
             return value
 
     # ------------------------------------------------------------------

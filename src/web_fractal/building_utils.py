@@ -15,8 +15,17 @@ T = TypeVar("T")
 
 
 def filter_objects_of_type(injector: DependencyInjector, obj_type: T) -> list[T]:
+    # archtool 2.0 переименовал приватное _dependencies в публичное dependencies.
+    # Чтение приватного имени под 2.x возвращало ноль объектов, и приложение
+    # поднималось с пустым роутером — без единой ошибки. Проверка именно на None,
+    # а не на истинность: пустой словарь зависимостей легален и не должен уводить
+    # на ветку совместимости.
+    dependencies = getattr(injector, "dependencies", None)
+    if dependencies is None:
+        dependencies = getattr(injector, "_dependencies", {})
+
     result = []
-    for key, value in injector._dependencies.items():
+    for key, value in dependencies.items():
         if isclass(type(value)) and isinstance(value, obj_type):
             result.append(value)
     return result

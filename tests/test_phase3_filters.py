@@ -247,6 +247,25 @@ def test_uuid_in_coerce():
     assert f.active_expressions[0].value == [u1, u2]
 
 
+def test_uuid_coerce_from_uuid_instance():
+    """Значение уже нужного типа не приводится повторно.
+
+    Именно этот путь и работает в бою: as_fastapi_dep() объявляет query-параметр
+    с аннотацией uuid.UUID, поэтому FastAPI приводит строку сам, и в _coerce
+    приезжает готовый UUID. UUID(UUID(...)) кидает AttributeError — раньше его
+    не было в перехвате, и запрос отвечал 500-й.
+    """
+    uid = uuid.uuid4()
+    f = UUIDFilter(uid__eq=uid)
+    assert f.active_expressions[0].value == uid
+
+
+def test_uuid_in_coerce_from_uuid_instances():
+    u1, u2 = uuid.uuid4(), uuid.uuid4()
+    f = UUIDFilter(uid__in_=[u1, u2])
+    assert f.active_expressions[0].value == [u1, u2]
+
+
 # ---------------------------------------------------------------------------
 # OrderBy
 # ---------------------------------------------------------------------------
