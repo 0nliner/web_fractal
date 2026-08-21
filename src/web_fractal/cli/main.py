@@ -12,6 +12,7 @@ Commands:
     wf extract <module>       — extract module to microservice (dry-run by default)
     wf validate               — validate DI + protocol wiring
     wf graph                  — dependency graph
+    wf diagram <target>       — build ER + class diagrams from existing code
 """
 import sys
 from pathlib import Path
@@ -254,6 +255,47 @@ def graph(fmt: str, bundle: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# wf diagram — reverse-engineer ER + class diagrams from existing code
+# ---------------------------------------------------------------------------
+
+@cli.command("diagram")
+@click.argument("target")
+@click.option("--kind", "-k", type=click.Choice(["er", "class", "both"]),
+              default="both", show_default=True, help="Which diagram(s) to build.")
+@click.option("--format", "-f", "fmt", type=click.Choice(["mermaid", "cad", "json"]),
+              default="mermaid", show_default=True,
+              help="mermaid — portable text; cad — fractal_cad JSON; json — raw model.")
+@click.option("--out", "-o", "out", type=click.Path(), default=None,
+              help="Write to file instead of stdout.")
+def diagram(target: str, kind: str, fmt: str, out: str) -> None:
+    """Build class and ER diagrams from existing code (static AST parse, no import).
+
+    TARGET is a file, a directory, or a dotted module path (e.g. `app` or `app.crm`).
+    """
+    from web_fractal.core.diagram import build_diagrams, render
+
+    try:
+        model = build_diagrams(target)
+    except FileNotFoundError as e:
+        click.echo(f"Error: {e}", err=True)
+        sys.exit(1)
+
+    if model.is_empty:
+        click.echo("Nothing found: no SQLAlchemy tables and no classes in target.", err=True)
+        sys.exit(1)
+
+    text = render(model, fmt=fmt, kind=kind)
+    if out:
+        Path(out).write_text(text, encoding="utf-8")
+        click.echo(
+            f"Wrote {fmt} diagram → {out}  "
+            f"({len(model.entities)} tables, {len(model.relations)} relations, {len(model.classes)} classes)"
+        )
+    else:
+        click.echo(text)
+
+
+# ---------------------------------------------------------------------------
 # Template helpers
 # ---------------------------------------------------------------------------
 
@@ -436,3 +478,7 @@ class {cap}Controller(AutoHttpController):
     async def delete_{name}(self, id: int) -> None:
         ...
 """
+
+
+if __name__ == "__main__":
+    cli()

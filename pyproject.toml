@@ -72,14 +72,9 @@ wf = "web_fractal.cli.main:cli"
 # Явный состав. Подпакеты (`cli`, `core`, `http`, `transports`, `django`)
 # hatchling забирает рекурсивно.
 packages = ["src/web_fractal"]
-# `core/diagram` пока не в git — в релиз не идёт, чтобы содержимое пакета
-# соответствовало коммиту, по которому он собран. Вернуть строку в exclude
-# нельзя будет молча: без неё модуль снова поедет в дистрибутив.
-exclude = ["src/web_fractal/core/diagram"]
 
 [tool.hatch.build.targets.sdist]
 include = ["src/web_fractal", "tests", "README.md", "pyproject.toml"]
-exclude = ["src/web_fractal/core/diagram", "tests/test_diagram.py"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
