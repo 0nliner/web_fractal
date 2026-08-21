@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/why/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/why/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/why/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/api/db/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/db/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/db/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/api/filters/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/filters/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/filters/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/api/http/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/http/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/http/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/api/mixins/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/mixins/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/mixins/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/api/security/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/security/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/security/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/examples/fastapi/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/examples/fastapi/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/examples/fastapi/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/cli/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/cli/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/cli/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/extraction/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/extraction/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/extraction/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/faq/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/faq/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/faq/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/filters/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/filters/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/filters/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/http/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/http/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/http/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/installation/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/installation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/installation/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/mixins/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/mixins/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/mixins/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/quickstart/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/security/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/security/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/security/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/transports/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/transports/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/transports/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/guide/unit_of_work/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/unit_of_work/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/unit_of_work/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/why/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/why/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/why/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/api/db/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/db/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/db/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/api/filters/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/filters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/filters/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/api/http/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/http/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/http/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/api/mixins/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/mixins/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/mixins/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/api/security/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/api/security/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/api/security/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/examples/fastapi/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/examples/fastapi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/examples/fastapi/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/cli/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/cli/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/cli/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/extraction/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/extraction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/extraction/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/faq/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/faq/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/filters/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/filters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/filters/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/http/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/http/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/http/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/installation/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/installation/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/mixins/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/mixins/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/mixins/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/quickstart/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/security/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/security/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/security/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/transports/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/transports/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/transports/"/>
+    </url>
+    <url>
+        <loc>https://0nliner.github.io/web_fractal/ru/guide/unit_of_work/</loc>
+        <lastmod>2026-08-21</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://0nliner.github.io/web_fractal/ru/guide/unit_of_work/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://0nliner.github.io/web_fractal/guide/unit_of_work/"/>
+    </url>
+</urlset>
