@@ -1,13 +1,19 @@
 import json
 import os
-from typing import Any, Optional, Union, overload
-import aiohttp
+from typing import TYPE_CHECKING, Any, Optional, Union, overload
 import datetime
 from pathlib import Path
 import importlib
 
-from fastapi import Request
 import pytz
+
+# fastapi и aiohttp — НЕ обязательные зависимости пакета, поэтому импортируются
+# внутри функций, которым они нужны. Раньше оба стояли наверху, и из-за этого
+# `import web_fractal.db` (самый ходовой модуль: он тянет отсюда `now` и
+# `serialize`) требовал их обоих. То есть библиотека, объявленная
+# framework-agnostic, не ставилась без FastAPI.
+if TYPE_CHECKING:
+    from fastapi import Request
 
 from .env_helpers import get_bool_from_env
 
@@ -37,6 +43,8 @@ def get_settings_values(keys: list[str]) -> list[Any]:
 
 async def download_large_file(url: str,
                               save_dir: Path) -> str:
+    import aiohttp
+
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             if response.status != 200:
@@ -63,7 +71,7 @@ def map_to_dict(keys, values, **kwargs):
             prepared[key] = list(generator(prepared[key]))
         yield prepared
 
-async def serialize_fastapi_request(request: Request) -> dict:
+async def serialize_fastapi_request(request: "Request") -> dict:
     request_serialized = {}
     # Считываем тело запроса в байтах
     # Попытаемся распарсить его как JSON, если не получится, оставим как строку

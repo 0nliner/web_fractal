@@ -1,36 +1,90 @@
+[build-system]
+# hatchling, как в archtool. Прежний setuptools собирал пакет БЕЗ явного
+# описания состава, и опубликованная 0.0.1 приехала на PyPI без трёх
+# подпакетов (`filters`, `mixins`, `transports`) — а `__init__` их импортировал,
+# из-за чего ломался любой импорт. Здесь состав задан явно.
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "web_fractal"
-version = "0.2.0"
-requires-python = ">=3.12"
-authors = [
-    { name = "Aleksandr", email = "vkusnisaharok@gmail.com" },
-]
+version = "0.2.1"
 description = "Framework-agnostic constructor library: FilterBase DSL, ABAC, CRUD mixins, multi-protocol controllers, fractal extraction"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Aleksandr Chudaikin", email = "vkusnisaharok@gmail.com" },
+]
+keywords = ["sqlalchemy", "pydantic", "clean-architecture", "crud", "abac", "filters"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Database",
+    "Typing :: Typed",
+]
+requires-python = ">=3.12"
+
+# Ядро библиотеки: то, без чего не импортируется `web_fractal.db` — самый
+# ходовой модуль. Всё, что относится к конкретному фреймворку или транспорту,
+# вынесено в экстры ниже, и `__init__` их больше не тянет (см. его докстринг).
 dependencies = [
     "pydantic>=2.0",
     "sqlalchemy>=2.0",
+    "archtool>=2.0",
     "click>=8.0",
-    "furl",
-    "pytz",
+    "furl>=2.1",
+    "pytz>=2024.1",
+    "typing-extensions>=4.12",
 ]
 
 [project.optional-dependencies]
-fastapi  = ["fastapi>=0.100"]
-aiohttp  = ["aiohttp>=3.8"]
-kafka    = ["aiokafka>=0.9"]
-grpc     = ["grpclib>=0.4"]
-graphql  = ["strawberry-graphql>=0.200"]
-django   = ["django>=4.0"]
-dev      = ["pytest>=8.0", "pytest-asyncio>=1.0", "aiosqlite"]
+# `building_utils`, `http/*` и `middlewares` — интеграция с FastAPI.
+fastapi = ["fastapi>=0.100"]
+# `utils.download_large_file`.
+aiohttp = ["aiohttp>=3.8"]
+kafka = ["aiokafka>=0.9"]
+grpc = ["grpclib>=0.4"]
+graphql = ["strawberry-graphql>=0.200"]
+django = ["django>=4.0"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=1.0",
+    "aiosqlite",
+    "fastapi>=0.100",
+    "aiohttp>=3.8",
+    "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/0nliner/web_fractal"
+Repository = "https://github.com/0nliner/web_fractal"
 
 [project.scripts]
 wf = "web_fractal.cli.main:cli"
 
-[build-system]
-requires = ["uv>=0.1.0", "setuptools>=65.0.0"]
-build-backend = "setuptools.build_meta"
+[tool.hatch.build.targets.wheel]
+# Явный состав. Подпакеты (`cli`, `core`, `http`, `transports`, `django`)
+# hatchling забирает рекурсивно.
+packages = ["src/web_fractal"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/web_fractal", "tests", "README.md", "pyproject.toml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4"]
+ignore = ["E501"]
