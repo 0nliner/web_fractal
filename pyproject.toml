@@ -52,6 +52,11 @@ kafka = ["aiokafka>=0.9"]
 grpc = ["grpclib>=0.4"]
 graphql = ["strawberry-graphql>=0.200"]
 django = ["django>=4.0"]
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.25",
+    "mkdocs-static-i18n>=1.2",
+]
 dev = [
     "pytest>=8.0",
     "pytest-asyncio>=1.0",

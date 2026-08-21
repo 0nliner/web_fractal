@@ -72,3 +72,5 @@ kubeconfig
 # Misc
 .DS_Store
 Thumbs.db 
+# Собранный сайт документации (публикуется через mkdocs gh-deploy).
+/site/

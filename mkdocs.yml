@@ -1,0 +1,123 @@
+site_name: web_fractal
+site_description: Type-safe filters, ABAC scopes, CRUD mixins and multi-protocol controllers for SQLAlchemy — without wiring them by hand.
+site_url: https://0nliner.github.io/web_fractal
+repo_url: https://github.com/0nliner/web_fractal
+repo_name: 0nliner/web_fractal
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ru
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: ru
+          name: Русский
+          build: true
+          nav_translations:
+            Home: Главная
+            Why web_fractal?: Зачем web_fractal?
+            Guide: Руководство
+            Installation: Установка
+            Quickstart: Быстрый старт
+            Unit of Work: Единица работы
+            Filters DSL: DSL фильтров
+            CRUD mixins: CRUD-миксины
+            Security (ABAC): Права доступа (ABAC)
+            HTTP controllers: HTTP-контроллеры
+            Transports: Транспорты
+            CLI: CLI
+            Extraction: Извлечение модуля
+            FAQ: FAQ
+            API Reference: Справочник API
+            Examples: Примеры
+            FastAPI + archtool: FastAPI + archtool
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+
+nav:
+  - Home: index.md
+  - Why web_fractal?: why.md
+  - Guide:
+      - Installation: guide/installation.md
+      - Quickstart: guide/quickstart.md
+      - Unit of Work: guide/unit_of_work.md
+      - Filters DSL: guide/filters.md
+      - CRUD mixins: guide/mixins.md
+      - Security (ABAC): guide/security.md
+      - HTTP controllers: guide/http.md
+      - Transports: guide/transports.md
+      - CLI: guide/cli.md
+      - Extraction: guide/extraction.md
+      - FAQ: guide/faq.md
+  - API Reference:
+      - db: api/db.md
+      - filters: api/filters.md
+      - mixins: api/mixins.md
+      - security: api/security.md
+      - http: api/http.md
+  - Examples:
+      - FastAPI + archtool: examples/fastapi.md
+
+copyright: >
+  © 2026 <a href="https://github.com/0nliner" target="_blank">Бюро автоматизации процессов</a>
+  &nbsp;·&nbsp;
+  <a href="mailto:vkusnisaharok@gmail.com">vkusnisaharok@gmail.com</a>
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/0nliner/web_fractal
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/web-fractal
